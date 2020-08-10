@@ -5,10 +5,28 @@ export default class UserRegister extends Component {
     return (
       <div>
         <h1> Register</h1>
-        <form>
-          <input type="text" placeholder="username" name="username" />
-          <input type="text" placeholder="email" name="email" />
-          <input type="password" placeholder="password" name="password" />
+        <form onSubmit={(event) => this.props.userSubmit(event)}>
+          <input
+            type="text"
+            placeholder="username"
+            id="username"
+            value={this.props.username}
+            onChange={this.props.handleChange}
+          />
+          <input
+            type="text"
+            placeholder="email"
+            id="email"
+            value={this.props.email}
+            onChange={this.props.handleChange}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            id="password"
+            value={this.props.password}
+            onChange={this.props.handleChange}
+          />
           <input type="submit" />
         </form>
       </div>
