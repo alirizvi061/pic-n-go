@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import UserRegister from "./components/UserRegister.jsx";
-import NavBar from "./components/NavBar.jsx";
+import UserRegister from "./components/UserRegister";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -55,6 +55,10 @@ class App extends Component {
     // console.log(this.state);
   };
 
+  destroySession = () => {
+    window.localStorage.clear();
+  };
+
   render() {
     return (
       <div>
@@ -75,7 +79,7 @@ class App extends Component {
             )}
           />
           {/* need to make backend for Login */}
-          <NavBar user={this.state.user} />
+          <NavBar destroySession={this.destroySession} user={this.state.user} />
         </BrowserRouter>
       </div>
     );

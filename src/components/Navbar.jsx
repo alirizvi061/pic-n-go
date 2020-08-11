@@ -21,26 +21,28 @@ export default class NavBar extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
                   
           <Nav className="ml-auto">
-                      <Nav.Link href="/home">Home</Nav.Link>
-                      <Nav.Link href="/users">Sign Up</Nav.Link>
-                      
             {this.props.user ? (
               <>
-                              <Nav.Link href="/home">Home</Nav.Link>
-                              <Nav.Link href="/users">Sign Up</Nav.Link>
+                {/*               <Nav.Link href="/home">Home</Nav.Link> */}
                               
+                {/*               <Nav.Link href="/users">Sign Up</Nav.Link> */}
+                <Nav.Link href="/list">List</Nav.Link>
                 <Button
                   type="button"
                   id="btnLogout"
-                  // onClick={destroySession}
-                  href="/"
+                  onClick={this.props.destroySession}
+                  href="/home"
                 >
                                   Logout               
                 </Button>
                             
               </>
             ) : (
-              <Nav.Link href="/login">Login</Nav.Link>
+              <>
+                <Nav.Link href="/home">Home</Nav.Link> 
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/users">Sign Up</Nav.Link>
+              </>
             )}
                     
           </Nav>
