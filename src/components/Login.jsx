@@ -6,14 +6,14 @@ export default class Login extends Component {
       <div>
         <div className=" m-5">
           <h1> Log In</h1>
-          <form onSubmit={(event) => this.userSubmit(event)}>
+          <form onSubmit={(event) => this.props.loginSubmit(event)}>
             <div className="form-group">
               <input
                 type="text"
                 placeholder="username"
                 id="username"
                 value={this.username}
-                onChange={this.handleChange}
+                onChange={this.props.handleLoginChange}
               />
             </div>
             <div className="form-group">
@@ -22,7 +22,7 @@ export default class Login extends Component {
                 placeholder="email"
                 id="email"
                 value={this.email}
-                onChange={this.handleChange}
+                onChange={this.props.handleLoginChange}
               />
             </div>
             <div className="form-group">
@@ -31,7 +31,7 @@ export default class Login extends Component {
                 placeholder="password"
                 id="password"
                 value={this.password}
-                onChange={this.handleChange}
+                onChange={this.props.handleLoginChange}
               />
             </div>
             <input type="submit" />
