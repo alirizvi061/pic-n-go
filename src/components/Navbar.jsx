@@ -1,12 +1,53 @@
 import React, { Component } from "react";
+import { Navbar, Nav, Button } from "react-bootstrap";
 
-export default class Navbar extends Component {
+export default class NavBar extends Component {
   render() {
     return (
-      <div>
-        <Link to="/"> Home </Link>
-        <Link to="/users"> Sign Up </Link>
-      </div>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="primary"
+        variant="dark"
+        className="fixed-top"
+      >
+              
+        <Navbar.Brand id="nav-title" href="/home">
+                  Pic N Go     
+        </Navbar.Brand>
+              
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              
+        <Navbar.Collapse id="responsive-navbar-nav">
+                  
+          <Nav className="ml-auto">
+                      <Nav.Link href="/home">Home</Nav.Link>
+                      <Nav.Link href="/users">Sign Up</Nav.Link>
+                      
+            {this.props.user ? (
+              <>
+                              <Nav.Link href="/home">Home</Nav.Link>
+                              <Nav.Link href="/users">Sign Up</Nav.Link>
+                              
+                <Button
+                  type="button"
+                  id="btnLogout"
+                  // onClick={destroySession}
+                  href="/"
+                >
+                                  Logout               
+                </Button>
+                            
+              </>
+            ) : (
+              <Nav.Link href="/login">Login</Nav.Link>
+            )}
+                    
+          </Nav>
+                
+        </Navbar.Collapse>
+            
+      </Navbar>
     );
   }
 }
