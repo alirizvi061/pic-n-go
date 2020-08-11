@@ -12,7 +12,7 @@ export default class Login extends Component {
                 type="text"
                 placeholder="username"
                 id="username"
-                value={this.username}
+                value={this.props.username}
                 onChange={this.props.handleLoginChange}
               />
             </div>
@@ -21,7 +21,7 @@ export default class Login extends Component {
                 type="text"
                 placeholder="email"
                 id="email"
-                value={this.email}
+                value={this.props.email}
                 onChange={this.props.handleLoginChange}
               />
             </div>
@@ -30,7 +30,7 @@ export default class Login extends Component {
                 type="password"
                 placeholder="password"
                 id="password"
-                value={this.password}
+                value={this.props.password}
                 onChange={this.props.handleLoginChange}
               />
             </div>

@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
     this.state = {
       baseURL: "http://localhost:3003",
-      isAuth: false,
+      // isAuth: false,
+      user: false,
       username: "",
       email: "",
       password: "",
@@ -26,26 +27,32 @@ class App extends Component {
   loginSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(this.state.baseURL + "/login", {
+      .post(this.state.baseURL + "/users/login", {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
       })
-      .then((data) => {
-        if (data !== null) {
+      .then((res) => {
+        console.log(res);
+        if (res !== null && res.status == 200) {
+          let data = res.data;
+          console.log(data);
           this.setState({
-            username: data.username,
+            user: true,
           });
+          console.log(this.state.user);
           localStorage.setItem("username", data.username);
           localStorage.setItem("token", data.securityToken);
         }
       })
       .catch((error) => console.error({ Error: error }));
+    // console.log(this.state);
     this.setState({
       username: "",
       email: "",
       password: "",
     });
+    // console.log(this.state);
   };
 
   render() {
