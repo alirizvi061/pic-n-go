@@ -5,7 +5,7 @@ import axios from "axios";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UserRegister from "./components/UserRegister";
-import NavBar from "./components/NavBar";
+import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
