@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userId: "",
       modal: null, //for the picture modal, null initially but opens with object data
       baseURL: "http://localhost:3003",
       user: false,
@@ -27,8 +28,10 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("username")) {
+      let userId = localStorage.getItem("userId");
       this.setState({
         user: true,
+        userId: userId,
       });
     }
   }
@@ -46,11 +49,15 @@ class App extends Component {
         if (res !== null && res.status == 200) {
           let data = res.data;
           console.log(data);
+          console.log(data.userId);
           this.setState({
+            userId: data.userId,
             user: true,
           });
-          console.log(this.state.user);
+          // console.log(this.state.user);
+          console.log("this userId in state is now", this.state.userId);
           localStorage.setItem("username", data.username);
+          localStorage.setItem("userId", data.userId);
           localStorage.setItem("token", data.securityToken);
         }
       })
@@ -76,7 +83,16 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <Route path="/home" component={Home} />
+          <Route
+            path="/home"
+            render={() => (
+              <Home
+                baseURL={this.state.baseURL}
+                userId={this.state.userId}
+                username={this.state.username}
+              />
+            )}
+          />
           <Route path="/users" component={UserRegister} />
           <Route path="/list" component={Mylist} />
           <Route
