@@ -16,15 +16,15 @@ export default class Login extends Component {
                 onChange={this.props.handleLoginChange}
               />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <input
                 type="text"
                 placeholder="email"
                 id="email"
                 value={this.props.email}
                 onChange={this.props.handleLoginChange}
-              />
-            </div>
+              /> */}
+            {/* </div> */}
             <div className="form-group">
               <input
                 type="password"
@@ -37,7 +37,7 @@ export default class Login extends Component {
             <input type="submit" />
           </form>
         </div>
-      </div>
+      </div >
     );
   }
 }

@@ -46,7 +46,7 @@ class App extends Component {
     axios
       .post(this.state.baseURL + "/users/login", {
         username: this.state.username,
-        email: this.state.email,
+        // email: this.state.email,
         password: this.state.password,
       })
       .then((res) => {
@@ -106,7 +106,7 @@ class App extends Component {
             path="/list"
             render={() => (
               <Mylist
-                userPicList={this.state.userPicList}
+                banana={this.state.userPicList}
                 baseURL={this.state.baseURL}
                 userId={this.state.userId}
                 username={this.state.username}
