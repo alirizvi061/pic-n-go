@@ -5,9 +5,10 @@ export default class Mylist extends Component {
     return (
       <div>
         <div className=" m-5">
-          <h1>My List</h1>
+          <h2>{this.props.username}'s List</h2>
           <ul>
-            <li>item 1</li>
+            <li>{this.props.userPicList}</li>
+
           </ul>
         </div>
       </div>

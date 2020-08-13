@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userPicList: [],
       userId: "",
       modal: null, //for the picture modal, null initially but opens with object data
       baseURL: "http://localhost:3003",
@@ -29,9 +30,13 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.getItem("username")) {
       let userId = localStorage.getItem("userId");
+      let username = localStorage.getItem("username");
+      let userPiclist = localStorage.getItem("userPicList");
       this.setState({
         user: true,
         userId: userId,
+        username: username,
+        userPicList: userPiclist
       });
     }
   }
@@ -50,13 +55,16 @@ class App extends Component {
           let data = res.data;
           console.log(data);
           console.log(data.userId);
+          console.log(data.userPicList);
           this.setState({
+            userPicList: data.userPicList,
             userId: data.userId,
             user: true,
           });
           // console.log(this.state.user);
           console.log("this userId in state is now", this.state.userId);
           localStorage.setItem("username", data.username);
+          localStorage.setItem("userPicList", data.userPicList);
           localStorage.setItem("userId", data.userId);
           localStorage.setItem("token", data.securityToken);
         }
@@ -94,7 +102,17 @@ class App extends Component {
             )}
           />
           <Route path="/users" component={UserRegister} />
-          <Route path="/list" component={Mylist} />
+          <Route
+            path="/list"
+            render={() => (
+              <Mylist
+                userPicList={this.state.userPicList}
+                baseURL={this.state.baseURL}
+                userId={this.state.userId}
+                username={this.state.username}
+              />
+            )}
+          />
           <Route
             path="/login"
             render={() => (
