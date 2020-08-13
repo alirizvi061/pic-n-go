@@ -23,9 +23,7 @@ export default class NavBar extends Component {
           <Nav className="ml-auto">
             {this.props.user ? (
               <>
-                {/*               <Nav.Link href="/home">Home</Nav.Link> */}
-                              
-                {/*               <Nav.Link href="/users">Sign Up</Nav.Link> */}
+                <Nav.Link href="/home">Home</Nav.Link> 
                 <Nav.Link href="/list">List</Nav.Link>
                 <Button
                   type="button"
@@ -33,9 +31,8 @@ export default class NavBar extends Component {
                   onClick={this.props.destroySession}
                   href="/home"
                 >
-                                  Logout               
+                  Logout
                 </Button>
-                            
               </>
             ) : (
               <>

@@ -5,14 +5,15 @@ import axios from "axios";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UserRegister from "./components/UserRegister";
+import Mylist from "./components/Mylist";
 import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modal: null, //for the picture modal, null initially but opens with object data
       baseURL: "http://localhost:3003",
-      // isAuth: false,
       user: false,
       username: "",
       email: "",
@@ -23,6 +24,14 @@ class App extends Component {
   handleLoginChange = (event) => {
     this.setState({ [event.currentTarget.id]: event.currentTarget.value });
   };
+
+  componentDidMount() {
+    if (localStorage.getItem("username")) {
+      this.setState({
+        user: true,
+      });
+    }
+  }
 
   loginSubmit = (event) => {
     event.preventDefault();
@@ -59,12 +68,17 @@ class App extends Component {
     window.localStorage.clear();
   };
 
+  // CREATE SET MODAL FUNCTION
+  // PASS IT DOWN AS PROPS TO THE MODAL.JSX AND HOME.JSX
+  // FROM THAT COMPONENT, SET MODAL STATE TO TRUE
+  // CREATE SET MODAL FUNCTION THAT TAKES VALUE AND THIS.SETSTATE TO THAT VALUE
   render() {
     return (
       <div>
         <BrowserRouter>
           <Route path="/home" component={Home} />
           <Route path="/users" component={UserRegister} />
+          <Route path="/list" component={Mylist} />
           <Route
             path="/login"
             render={() => (
@@ -78,8 +92,8 @@ class App extends Component {
               />
             )}
           />
-          {/* need to make backend for Login */}
           <NavBar destroySession={this.destroySession} user={this.state.user} />
+          {/* create modal jsx, wrap in turnery operator. if true, pass stuff, in null close modal*/}
         </BrowserRouter>
       </div>
     );

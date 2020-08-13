@@ -48,7 +48,13 @@ class Home extends Component {
 
   render() {
     const imageComponent = this.state.apiData.map((images) => {
-      return <Images images={images} />;
+      return (
+        <Images
+          // username={this.props.username}
+          // baseURL={this.props.baseURL}
+          images={images}
+        />
+      );
     });
 
     return (
@@ -64,7 +70,9 @@ class Home extends Component {
           </div>
           <input type="submit" />
         </form>
-        {this.state.isLoaded && imageComponent}
+        <div className="container">
+          <div className="row">{this.state.isLoaded && imageComponent}</div>
+        </div>
       </div>
     );
   }
