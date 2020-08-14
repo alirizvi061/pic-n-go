@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class Images extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     base: "http://localhost:3003", // change this to the environmental variable when deploying
-  //   };
-  // }
 
   showPicInfo = () => {
     console.log(this.props.images.farm);
@@ -35,18 +29,14 @@ class Images extends Component {
         console.log(res.data);
       })
       .catch((error) => console.error({ Error: error }));
-    //   //send back current user ID and the Image URL
-    //   //make a route on the back end that console logs the response
-    //   //this function is the axios call
-    //   //it'll take image data and send it to the back end
   };
 
   render() {
     return (
-      <div className="searchedImages">
+      <div className="searchedImages text-lg-left">
         <img
           onClick={this.showPicInfo}
-          className="searchedImage img-thumbnail w-70  p-3"
+          className="searchedImage img-thumbnail w-20  p-3"
           key={this.props.images.key}
           alt="flicker items"
           src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}

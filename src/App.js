@@ -89,7 +89,7 @@ class App extends Component {
   // CREATE SET MODAL FUNCTION THAT TAKES VALUE AND THIS.SETSTATE TO THAT VALUE
   render() {
     return (
-      <div>
+      <div className="container mr-auto">
         <BrowserRouter>
           <Route
             path="/home"

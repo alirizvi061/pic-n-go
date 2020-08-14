@@ -31,11 +31,11 @@ class Home extends Component {
     axios
       .get(
         this.state.baseURL +
-          this.state.method +
-          this.state.apiKey +
-          this.state.text +
-          this.state.queryTerm +
-          this.state.jsonResponse
+        this.state.method +
+        this.state.apiKey +
+        this.state.text +
+        this.state.queryTerm +
+        this.state.jsonResponse
       )
       .then((res) => {
         this.state.apiData = res.data.photos.photo;
@@ -60,7 +60,7 @@ class Home extends Component {
 
     return (
       <div className="m-5">
-        <h1>Pic n Go</h1>
+        <h1 className="text-lg-left">Pic n Go</h1>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
             <input
@@ -71,7 +71,7 @@ class Home extends Component {
           </div>
           <input type="submit" />
         </form>
-        <div className="container">
+        <div className="container d-flex flex-wrap">
           <div className="row">{this.state.isLoaded && imageComponent}</div>
         </div>
       </div>

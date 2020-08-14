@@ -26,17 +26,21 @@ export default class Mylist extends Component {
       <div>
         <div className=" m-5">
           <h2>{this.props.username}'s List</h2>
-          <ul>
-            {console.log(this.state.picList)}
-            {
-              this.state.picList.map(picture => {
-                return (
-                  <li>{picture}</li>
-                )
-              })
-            }
+          <div className="container d-flex flex-wrap">
+            <div className="row">
+              {/* {console.log(this.state.picList)} */}
+              {
+                this.state.picList.map(picture => {
+                  return (
 
-          </ul>
+                    <img className=" " src={`${picture}`} alt="my list items" />
+
+                    // <li>{picture}</li>
+                  )
+                })
+              }
+            </div>
+          </div >
         </div>
       </div>
     );

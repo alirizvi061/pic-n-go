@@ -42,7 +42,7 @@ export default class UserRegister extends Component {
   render() {
     return (
       <div className=" m-5">
-        <h1> Register</h1>
+        <h1 className="text-lg-left"> Register</h1>
         <form onSubmit={(event) => this.userSubmit(event)}>
           <div className="form-group">
             <input

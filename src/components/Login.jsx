@@ -5,7 +5,7 @@ export default class Login extends Component {
     return (
       <div>
         <div className=" m-5">
-          <h1> Log In</h1>
+          <h1 className="text-lg-left"> Log In</h1>
           <form onSubmit={(event) => this.props.loginSubmit(event)}>
             <div className="form-group">
               <input
