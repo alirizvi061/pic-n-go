@@ -51,7 +51,7 @@ class App extends Component {
       })
       .then((res) => {
         console.log(res);
-        if (res !== null && res.status == 200) {
+        if (res !== null && res.status === 200) {
           let data = res.data;
           console.log(data);
           console.log(data.userId);

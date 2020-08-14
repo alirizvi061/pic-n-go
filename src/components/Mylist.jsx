@@ -14,7 +14,7 @@ export default class Mylist extends Component {
 
     })
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({
           picList: res.data.userPicList
         })
@@ -23,14 +23,25 @@ export default class Mylist extends Component {
 
   removeItem = (picture) => {
     console.log(picture)
-    axios.delete(this.props.baseURL + "/users/" + localStorage.userId + "/deleteitem", {
+    console.log(localStorage)
+    // console.log(this.props.baseURL
+    // )
+    axios.put(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
       picture: picture
     })
-      .then((res) => {
-        this.setState({
-          picList: res.data.userPicList
-        })
+      .then(res => {
+        console.log(res)
       })
+    // axios.delete(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
+    //   picture: picture
+    // })
+    //   .then(res => {
+    //     console.log(res.data.deletedItem.userPicList)
+    //     // this.setState({
+    //     //   picList: res.data.deletedItem.userPicList
+    //     // })
+    //   })
+
   }
 
   render() {
@@ -40,7 +51,6 @@ export default class Mylist extends Component {
           <h2>{this.props.username}'s List</h2>
           <div className="container d-flex flex-wrap">
             <div className="row">
-              {/* {console.log(this.state.picList)} */}
               {
                 this.state.picList.map(picture => {
                   return (
@@ -48,7 +58,6 @@ export default class Mylist extends Component {
                       <img className=" " src={`${picture}`} alt="my list items" />
                       <button onClick={() => this.removeItem(picture)}>Delete</button>
                     </div>
-                    // <li>{picture}</li>
                   )
                 })
               }
