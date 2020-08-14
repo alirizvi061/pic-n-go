@@ -9,7 +9,7 @@ export default class Mylist extends Component {
     }
   }
 
-  componentDidMount() {
+  getItems = () => {
     axios.get(this.props.baseURL + "/users/" + localStorage.userId, {
 
     })
@@ -19,6 +19,10 @@ export default class Mylist extends Component {
           picList: res.data.userPicList
         })
       })
+  }
+
+  componentDidMount() {
+    this.getItems()
   }
 
   removeItem = (picture) => {
@@ -31,6 +35,7 @@ export default class Mylist extends Component {
     })
       .then(res => {
         console.log(res)
+        this.getItems()
       })
     // axios.delete(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
     //   picture: picture
