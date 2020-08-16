@@ -113,6 +113,7 @@ class App extends Component {
             path="/home"
             render={() => (
               <Home
+                closeModal={this.closeModal}
                 show={this.state.show}
                 showModal={this.showModal}
                 baseURL={this.state.baseURL}

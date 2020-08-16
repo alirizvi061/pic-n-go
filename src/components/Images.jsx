@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PicModal from "./PicModal";
 import axios from "axios";
 
 class Images extends Component {
@@ -30,6 +31,10 @@ class Images extends Component {
       .catch((error) => console.error({ Error: error }));
   };
 
+  closeHomeImageShowModal = () => {
+    this.props.closeHomeShowModal()
+  }
+
 
   render() {
     return (
@@ -43,6 +48,13 @@ class Images extends Component {
           src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
         />
         <button onClick={this.saveToList}>Save To List</button>
+        {
+          this.props.show
+            ? <PicModal
+              closeHomeImageShowModal={this.closeHomeImageShowModal}
+            />
+            : null
+        }
       </div>
     );
   }

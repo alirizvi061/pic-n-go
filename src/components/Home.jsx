@@ -50,10 +50,16 @@ class Home extends Component {
     this.props.showModal()
   }
 
+  closeHomeShowModal = () => {
+    this.props.closeModal()
+  }
+
+
   render() {
     const imageComponent = this.state.apiData.map((images) => {
       return (
         <Images
+          closeHomeShowModal={this.closeHomeShowModal}
           homeShowModal={this.homeShowModal}
           show={this.props.show}
           showModal={this.props.showModal}
@@ -64,6 +70,7 @@ class Home extends Component {
         />
       );
     });
+
 
     return (
       <div className="m-5">
