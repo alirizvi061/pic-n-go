@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UserRegister from "./components/UserRegister";
 import Mylist from "./components/Mylist";
+import PicModal from "./components/PicModal";
 import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      show: false,
+      loggedIn: false,
       userPicList: [],
       userId: "",
       modal: null, //for the picture modal, null initially but opens with object data
@@ -53,15 +56,16 @@ class App extends Component {
         console.log(res);
         if (res !== null && res.status === 200) {
           let data = res.data;
-          console.log(data);
-          console.log(data.userId);
-          console.log(data.userPicList);
+          // console.log(data);
+          // console.log(data.userId);
+          // console.log(data.userPicList);
           this.setState({
             userPicList: data.userPicList,
             userId: data.userId,
             user: true,
+            loggedIn: true,
           });
-          // console.log(this.state.user);
+          console.log(this.state.loggedIn);
           console.log("this userId in state is now", this.state.userId);
           localStorage.setItem("username", data.username);
           localStorage.setItem("userPicList", data.userPicList);
@@ -83,6 +87,20 @@ class App extends Component {
     window.localStorage.clear();
   };
 
+  showModal = () => {
+    console.log("show modal function entered")
+    this.setState({
+      show: true
+    })
+    console.log(this.state.show)
+  }
+
+  closeModal = () => {
+    this.setState({
+      show: false
+    })
+  }
+
   // CREATE SET MODAL FUNCTION
   // PASS IT DOWN AS PROPS TO THE MODAL.JSX AND HOME.JSX
   // FROM THAT COMPONENT, SET MODAL STATE TO TRUE
@@ -95,6 +113,8 @@ class App extends Component {
             path="/home"
             render={() => (
               <Home
+                show={this.state.show}
+                showModal={this.showModal}
                 baseURL={this.state.baseURL}
                 userId={this.state.userId}
                 username={this.state.username}
@@ -117,6 +137,7 @@ class App extends Component {
             path="/login"
             render={() => (
               <Login
+                loggedIn={this.state.loggedIn}
                 loginSubmit={this.loginSubmit}
                 handleLoginChange={this.handleLoginChange}
                 username={this.state.username}
@@ -128,6 +149,14 @@ class App extends Component {
           />
           <NavBar destroySession={this.destroySession} user={this.state.user} />
           {/* create modal jsx, wrap in turnery operator. if true, pass stuff, in null close modal*/}
+          {
+            this.state.show
+              ? <PicModal
+                closeModal={this.closeModal}
+                showModal={this.state.show}
+              />
+              : null
+          }
         </BrowserRouter>
       </div>
     );

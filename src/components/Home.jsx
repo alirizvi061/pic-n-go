@@ -46,10 +46,17 @@ class Home extends Component {
       });
   };
 
+  homeShowModal = () => {
+    this.props.showModal()
+  }
+
   render() {
     const imageComponent = this.state.apiData.map((images) => {
       return (
         <Images
+          homeShowModal={this.homeShowModal}
+          show={this.props.show}
+          showModal={this.props.showModal}
           baseURL={this.props.baseURL}
           userId={this.props.userId}
           username={this.props.username}
@@ -61,6 +68,8 @@ class Home extends Component {
     return (
       <div className="m-5">
         <h1 className="text-lg-left">Pic n Go</h1>
+        <p>Got a trip coming up? Search for thousands of pictures and add them to your bucket list!</p>
+
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <div className="form-group">
             <input

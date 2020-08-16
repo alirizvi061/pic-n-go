@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
+
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/home" />
+    }
     return (
       <div>
         <div className=" m-5">
@@ -16,15 +21,6 @@ export default class Login extends Component {
                 onChange={this.props.handleLoginChange}
               />
             </div>
-            {/* <div className="form-group">
-              <input
-                type="text"
-                placeholder="email"
-                id="email"
-                value={this.props.email}
-                onChange={this.props.handleLoginChange}
-              /> */}
-            {/* </div> */}
             <div className="form-group">
               <input
                 type="password"
@@ -36,6 +32,7 @@ export default class Login extends Component {
             </div>
             <input type="submit" />
           </form>
+          <p>Not a user? <a href='/users'>Sign Up!</a></p>
         </div>
       </div >
     );

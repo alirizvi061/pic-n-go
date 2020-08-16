@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 export default class UserRegister extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userCreated: false,
       baseURL: process.env.REACT_APP_baseURL || "http://localhost:3003",
       username: "",
       email: "",
@@ -31,6 +33,7 @@ export default class UserRegister extends Component {
           username: "",
           email: "",
           password: "",
+          userCreated: true,
         });
         console.log(res);
       })
@@ -40,9 +43,12 @@ export default class UserRegister extends Component {
   };
   //
   render() {
+    if (this.state.userCreated) {
+      return <Redirect to="/login" />
+    }
     return (
       <div className=" m-5">
-        <h1 className="text-lg-left"> Register</h1>
+        <h1 className="text-lg-left"> Sign Up</h1>
         <form onSubmit={(event) => this.userSubmit(event)}>
           <div className="form-group">
             <input
@@ -76,6 +82,7 @@ export default class UserRegister extends Component {
 
           <input type="submit" />
         </form>
+        <p>Already a user? <a href='/login'>Log In!</a></p>
       </div>
     );
   }

@@ -14,7 +14,6 @@ class Images extends Component {
 
   saveToList = () => {
     console.log("function entered");
-
     let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
 
     console.log(imageURL);
@@ -31,11 +30,13 @@ class Images extends Component {
       .catch((error) => console.error({ Error: error }));
   };
 
+
   render() {
     return (
       <div className="searchedImages text-lg-left">
         <img
-          onClick={this.showPicInfo}
+          onClick={() => { this.props.homeShowModal() }}
+          // onClick={this.showPicInfo}
           className="searchedImage img-thumbnail w-20  p-3"
           key={this.props.images.key}
           alt="flicker items"
