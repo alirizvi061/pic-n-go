@@ -38,8 +38,8 @@ class Home extends Component {
         this.state.jsonResponse
       )
       .then((res) => {
-        this.state.apiData = res.data.photos.photo;
         this.setState({
+          apiData: res.data.photos.photo,
           isLoaded: true,
         });
         console.log(this.state.apiData);

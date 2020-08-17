@@ -11,32 +11,32 @@ class Images extends Component {
     }
   }
 
-  showPicInfo = () => {
-    console.log(this.props.images.farm);
-    console.log(this.props.images.server);
-    console.log(this.props.images.id);
-    console.log(this.props.images.secret);
-    let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
-    console.log(imageURL);
-  };
+  // showPicInfo = () => {
+  //   console.log(this.props.images.farm);
+  //   console.log(this.props.images.server);
+  //   console.log(this.props.images.id);
+  //   console.log(this.props.images.secret);
+  //   let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
+  //   console.log(imageURL);
+  // };
 
-  saveToList = () => {
-    console.log("function entered");
-    let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
+  // saveToList = () => {
+  //   console.log("function entered");
+  //   let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
 
-    console.log(imageURL);
-    console.log(this.props.baseURL);
-    console.log(this.props.userId);
-    axios
-      .put(this.props.baseURL + "/users/list", {
-        _id: this.props.userId,
-        image: imageURL,
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((error) => console.error({ Error: error }));
-  };
+  //   console.log(imageURL);
+  //   console.log(this.props.baseURL);
+  //   console.log(this.props.userId);
+  //   axios
+  //     .put(this.props.baseURL + "/users/list", {
+  //       _id: this.props.userId,
+  //       image: imageURL,
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => console.error({ Error: error }));
+  // };
 
   // closeHomeImageShowModal = () => {
   //   this.props.closeHomeShowModal()
@@ -58,17 +58,17 @@ class Images extends Component {
 
   render() {
     return (
-      <div className="searchedImages text-lg-left">
-        <img
-          onClick={() => { this.showModal() }}
-          // onClick={this.showPicInfo}
-          className="searchedImage img-thumbnail w-20  p-3"
-          key={this.props.images.key}
-          alt="flicker items"
-          src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
-        />
-        {/* <button onClick={this.saveToList}>Save To List</button> */}
-        {
+      <>
+        <div className="searchedImages text-lg-left">
+          <img
+            onClick={() => { this.showModal() }}
+            className="searchedImage img-thumbnail w-20  p-3"
+            key={this.props.images.toString()}
+            alt="flicker items"
+            src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
+          />
+          {console.log(this.props.images.toString())}
+          {/* {
           this.state.show
             ? <PicModal
               saveToList={this.saveToList}
@@ -79,8 +79,22 @@ class Images extends Component {
               secret={this.props.images.secret}
             />
             : null
+        } */}
+        </div>
+        {
+          this.state.show
+            ? <PicModal
+              baseURL={this.props.baseURL}
+              userId={this.props.userId}
+              closeModal={this.closeModal}
+              farm={this.props.images.farm}
+              server={this.props.images.server}
+              id={this.props.images.id}
+              secret={this.props.images.secret}
+            />
+            : null
         }
-      </div>
+      </>
     );
   }
 }
