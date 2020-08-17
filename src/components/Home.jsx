@@ -46,13 +46,13 @@ class Home extends Component {
       });
   };
 
-  homeShowModal = () => {
-    this.props.showModal()
-  }
+  // homeShowModal = () => {
+  //   this.props.showModal()
+  // }
 
-  closeHomeShowModal = () => {
-    this.props.closeModal()
-  }
+  // closeHomeShowModal = () => {
+  //   this.props.closeModal()
+  // }
 
 
   render() {

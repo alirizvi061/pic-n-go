@@ -13,7 +13,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
       loggedIn: false,
       userPicList: [],
       userId: "",
@@ -87,19 +86,19 @@ class App extends Component {
     window.localStorage.clear();
   };
 
-  showModal = () => {
-    console.log("show modal function entered")
-    this.setState({
-      show: true
-    })
-    console.log(this.state.show)
-  }
+  // showModal = () => {
+  //   console.log("show modal function entered")
+  //   this.setState({
+  //     show: true
+  //   })
+  //   console.log(this.state.show)
+  // }
 
-  closeModal = () => {
-    this.setState({
-      show: false
-    })
-  }
+  // closeModal = () => {
+  //   this.setState({
+  //     show: false
+  //   })
+  // }
 
   // CREATE SET MODAL FUNCTION
   // PASS IT DOWN AS PROPS TO THE MODAL.JSX AND HOME.JSX

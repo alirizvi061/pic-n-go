@@ -6,8 +6,8 @@ export default class PicModal extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.props.closeHomeImageShowModal()}> X </button>
-                <h1>Picture Modal</h1>
+                {/* <button onClick={() => this.props.closeModal()}> X </button>
+                <h1>Picture Modal</h1> */}
 
                 <Modal.Dialog>
                     <Modal.Header closeButton>
@@ -16,11 +16,12 @@ export default class PicModal extends Component {
 
                     <Modal.Body>
                         <p>Add the picture to your bucket list!</p>
+                        <img src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt="thumbnail url" />
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={() => this.props.closeHomeImageShowModal()} variant="secondary">Close</Button>
-                        <Button variant="primary">Save changes</Button>
+                        <Button onClick={() => this.props.closeModal()} variant="secondary">Close</Button>
+                        <Button onClick={this.props.saveToList()} variant="primary">Save to list</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>
