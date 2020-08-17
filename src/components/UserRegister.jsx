@@ -7,7 +7,7 @@ export default class UserRegister extends Component {
     super(props);
     this.state = {
       userCreated: false,
-      baseURL: process.env.REACT_APP_baseURL || "http://localhost:3003",
+      baseURL: process.env.REACT_APP_baseURL,
       username: "",
       email: "",
       password: "",

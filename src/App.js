@@ -18,7 +18,7 @@ class App extends Component {
       userPicList: [],
       userId: "",
       modal: null, //for the picture modal, null initially but opens with object data
-      baseURL: process.env.REACT_APP_baseURL || "http://localhost:3003",
+      baseURL: process.env.REACT_APP_baseURL,
       user: false,
       username: "",
       email: "",
