@@ -5,7 +5,8 @@ export default class Mylist extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      picList: []
+      picList: [],
+      notes: []
     }
   }
 
@@ -16,7 +17,8 @@ export default class Mylist extends Component {
       .then(res => {
         // console.log(res)
         this.setState({
-          picList: res.data.userPicList
+          picList: res.data.userPicList,
+          notes: res.data.notes
         })
       })
   }
@@ -56,11 +58,12 @@ export default class Mylist extends Component {
           <h2>{this.props.username}'s List</h2>
           <div className="mylistContainer">
             {
-              this.state.picList.map(picture => {
+              this.state.picList.map((picture, index) => {
                 return (
-                  <div className="myListDiv" key={picture}>
+                  <div className="myListDiv" key={index}>
                     <img className="myListDivPic" src={`${picture}`} alt="my list items" />
                     <button onClick={() => this.removeItem(picture)}>Delete</button>
+                    <p>{this.state.notes[index]}</p>
                   </div>
                 )
               })

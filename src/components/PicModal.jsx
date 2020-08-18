@@ -11,7 +11,7 @@ export default class PicModal extends Component {
         }
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         // console.log(event)
         // console.log("notes change entered")
         this.setState({ [event.target.id]: event.target.value });
@@ -31,7 +31,7 @@ export default class PicModal extends Component {
             .put(this.props.baseURL + "/users/list", {
                 _id: this.props.userId,
                 image: imageURL,
-                // notes: notes,
+                notes: this.state.notes,
             })
             .then((res) => {
                 console.log(res.data);
@@ -51,12 +51,11 @@ export default class PicModal extends Component {
                     <Modal.Body className="bg-warning text-dark">
                         <p>Add the picture to your bucket list!</p>
                         <img id="modalPic" src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt="thumbnail url" />
-                        <form onSubmit={this.handleSubmit}>
+                        <form >
                             <label>
-                                Name:
+                                Notes:
                             <input type="text" name="notes" id="notes" value={this.state.notes} onChange={this.handleChange} />
                             </label>
-                            <input type="submit" value="Submit" />
                         </form>
                     </Modal.Body>
 
