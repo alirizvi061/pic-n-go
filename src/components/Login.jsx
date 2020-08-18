@@ -8,7 +8,7 @@ export default class Login extends Component {
       return <Redirect to="/home" />
     }
     return (
-      <div>
+      <div className="loginDiv">
         <div className=" m-5">
           <h1 className="text-lg-left"> Log In</h1>
           <form onSubmit={(event) => this.props.loginSubmit(event)}>

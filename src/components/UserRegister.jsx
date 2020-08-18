@@ -47,42 +47,44 @@ export default class UserRegister extends Component {
       return <Redirect to="/login" />
     }
     return (
-      <div className=" m-5">
-        <h1 className="text-lg-left"> Sign Up</h1>
-        <form onSubmit={(event) => this.userSubmit(event)}>
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="username"
-              id="username"
-              value={this.username}
-              onChange={this.handleChange}
-            />
-          </div>
+      <div className="signUpDiv">
+        <div className="m-5">
+          <h1 className="text-lg-left"> Sign Up</h1>
+          <form onSubmit={(event) => this.userSubmit(event)}>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="username"
+                id="username"
+                value={this.username}
+                onChange={this.handleChange}
+              />
+            </div>
 
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="email"
-              id="email"
-              value={this.email}
-              onChange={this.handleChange}
-            />
-          </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="email"
+                id="email"
+                value={this.email}
+                onChange={this.handleChange}
+              />
+            </div>
 
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="password"
-              id="password"
-              value={this.password}
-              onChange={this.handleChange}
-            />
-          </div>
+            <div className="form-group">
+              <input
+                type="password"
+                placeholder="password"
+                id="password"
+                value={this.password}
+                onChange={this.handleChange}
+              />
+            </div>
 
-          <input type="submit" />
-        </form>
-        <p>Already a user? <a href='/login'>Log In!</a></p>
+            <input type="submit" />
+          </form>
+          <p>Already a user? <a href='/login'>Log In!</a></p>
+        </div>
       </div>
     );
   }

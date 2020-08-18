@@ -1,3 +1,5 @@
+/* BODY */
+
 body{
   display: flex;
   text-align: center;
@@ -15,21 +17,24 @@ body{
 
 #root{
   margin-top: 25px;
- 
 }
 
+/* MODAL PICTURE */
 #modalPic{
   max-width: 99%;
 }
 
+/* HOME PAGE PICTURE */
+@media (min-width: 600px) {
 .searchedImages{
   display: flex;
   flex-direction: row;
-  width: %;
+  width: 25%;
   height: 1%;
   padding: 3%;
   justify-content: space-around;
   flex-wrap: wrap;
+}
 }
 
 @media (min-width: 600px) {
@@ -70,27 +75,91 @@ body{
 
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .searchedImageModal {
       position: fixed;
-      left: 10%;
       top: 10%;
-      width: 500px;
-      left: calc(50% - 250px);
+      width: 350px;
+      left: calc(50% - 170px);
   }
 }
 
-.myListDivPic{
-  width: 100%;
+/* MY LIST CSS */
+@media (min-width: 1000px){
+  .myListDivPic{
+    width: 100%;
+  }
+  .myListDiv{
+    display: inline-flex !important;
+  }
+}
+  .myListDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    border-radius: 15px 15px;
+    padding: 1%;
+    background-color: white;
+    width: 50%;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+@media (max-width: 1000px) {
+  .myListDivPic{
+    width: 100%;
+  }
+
+  .myListDiv{
+    width: 44%;
+    
+  }
+  .mylistContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    
+  }
 }
 
-/* MY LIST PAGE */
-.myListDiv{
-  display: flex;
-  flex-direction: column;
-  margin: 2%;
-  border-radius: 15px 15px;
-  padding: 20px;
+
+/* LOGIN CSS */
+.loginDiv{
+  display: inline-grid;
+  border: 1px solid black;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 15px 15px;
+
 }
+
+.signUpDiv {
+  width: 300px;
+  border: 1px solid black;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 15px 15px;
+}
+
+@media (max-width: 600px) {
+  .loginDiv{
+    margin: 30%;
+    margin-left: 38%;
+  }
+  .signUpDiv{
+    margin: 30%;
+    margin-left: 32%;
+  }
+}
+
+@media (min-width: 600px) {
+  .loginDiv, .signUpDiv{
+    margin: 30%;
+    margin-left: 38%;
+  }
+}
+

@@ -54,19 +54,17 @@ export default class Mylist extends Component {
       <div>
         <div className=" m-5">
           <h2>{this.props.username}'s List</h2>
-          <div className="container d-flex flex-wrap">
-            <div className="row">
-              {
-                this.state.picList.map(picture => {
-                  return (
-                    <div className="myListDiv" key={picture}>
-                      <img className="myListDivPic" src={`${picture}`} alt="my list items" />
-                      <button onClick={() => this.removeItem(picture)}>Delete</button>
-                    </div>
-                  )
-                })
-              }
-            </div>
+          <div className="mylistContainer">
+            {
+              this.state.picList.map(picture => {
+                return (
+                  <div className="myListDiv" key={picture}>
+                    <img className="myListDivPic" src={`${picture}`} alt="my list items" />
+                    <button onClick={() => this.removeItem(picture)}>Delete</button>
+                  </div>
+                )
+              })
+            }
           </div >
         </div>
       </div>
