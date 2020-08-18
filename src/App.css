@@ -1,4 +1,5 @@
 /* BODY */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
 
 body{
   display: flex;
@@ -6,6 +7,7 @@ body{
   background-color: white;
   /* color: white; */
   margin-left: 8%;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 
 @media (max-width: 600px) {
@@ -14,11 +16,19 @@ body{
   }
 }
 
-
 #root{
   margin-top: 25px;
 }
+/* HOME CSS */
 
+.homeDiv{
+  /* border: 1px solid black; */
+  background: gray;
+  color: white;
+  width: 73vw;
+  border-radius: 15px;
+  padding: 15px;
+}
 /* MODAL PICTURE */
 #modalPic{
   max-width: 99%;
@@ -115,7 +125,7 @@ body{
     position: fixed;
     top: 10%;
     left: calc(50% - 250px);
-}
+  }
 }
 
 /* MY LIST CSS */
@@ -138,7 +148,6 @@ body{
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
       0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
   }
-
 
 
 @media (max-width: 1000px) {

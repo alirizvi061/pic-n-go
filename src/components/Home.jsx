@@ -28,22 +28,27 @@ class Home extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // console.log(event.target.value)
-    axios
-      .get(
-        this.state.baseURL +
-        this.state.method +
-        this.state.apiKey +
-        this.state.text +
-        this.state.queryTerm +
-        this.state.jsonResponse
-      )
-      .then((res) => {
-        this.setState({
-          apiData: res.data.photos.photo,
-          isLoaded: true,
-        });
-        console.log(this.state.apiData);
-      });
+    if (this.state.queryTerm !== null) {
+      axios
+        .get(
+          this.state.baseURL +
+          this.state.method +
+          this.state.apiKey +
+          this.state.text +
+          this.state.queryTerm +
+          this.state.jsonResponse
+        )
+        .then((res) => {
+          this.setState({
+            apiData: res.data.photos.photo,
+            isLoaded: true,
+          });
+          console.log(this.state.apiData);
+        })
+        .catch(error => {
+          console.log("empty input", error)
+        })
+    }
   };
 
   render() {
@@ -60,24 +65,26 @@ class Home extends Component {
 
 
     return (
-      <div className=" homeDiv m-5 text-md-left text-sm-center">
-        <h1 >Pic n Go</h1>
-        <p>Got a trip coming up? Search for thousands of pictures and add them to your bucket list!</p>
+      <>
+        <div className=" homeDiv m-5 text-md-left text-sm-center">
+          <h1 >Pic N Go</h1>
+          <p>Got a trip coming up? Search for thousands of pictures and add them to your bucket list!</p>
 
-        <form onSubmit={(event) => this.handleSubmit(event)}>
-          <div className="form-group">
-            <input
-              type="text"
-              id="searchbar"
-              onChange={(event) => this.handleChange(event)}
-            />
-          </div>
-          <input type="submit" />
-        </form>
+          <form onSubmit={(event) => this.handleSubmit(event)}>
+            <div className="form-group">
+              <input
+                type="text"
+                id="searchbar"
+                onChange={(event) => this.handleChange(event)}
+              />
+            </div>
+            <input className="Button" type="submit" />
+          </form>
+        </div>
         <div className="container d-flex flex-wrap">
           <div className="row">{this.state.isLoaded && imageComponent}</div>
         </div>
-      </div>
+      </>
     );
   }
 }

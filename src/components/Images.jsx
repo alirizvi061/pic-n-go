@@ -80,6 +80,7 @@ class Images extends Component {
               server={this.props.images.server}
               id={this.props.images.id}
               secret={this.props.images.secret}
+              show={this.state.show}
             />
             : null
         }
