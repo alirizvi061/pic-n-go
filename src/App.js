@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import axios from "axios";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -106,7 +107,7 @@ class App extends Component {
   // CREATE SET MODAL FUNCTION THAT TAKES VALUE AND THIS.SETSTATE TO THAT VALUE
   render() {
     return (
-      <div className="container mr-auto">
+      <div className="container">
         <BrowserRouter>
           <Route
             path="/home"

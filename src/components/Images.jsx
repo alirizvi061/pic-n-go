@@ -68,32 +68,20 @@ class Images extends Component {
             src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
           />
           {console.log(this.props.images.toString())}
-          {/* {
-          this.state.show
-            ? <PicModal
-              saveToList={this.saveToList}
-              closeModal={this.closeModal}
-              farm={this.props.images.farm}
-              server={this.props.images.server}
-              id={this.props.images.id}
-              secret={this.props.images.secret}
-            />
-            : null
-        } */}
+          {
+            this.state.show
+              ? <PicModal
+                baseURL={this.props.baseURL}
+                userId={this.props.userId}
+                closeModal={this.closeModal}
+                farm={this.props.images.farm}
+                server={this.props.images.server}
+                id={this.props.images.id}
+                secret={this.props.images.secret}
+              />
+              : null
+          }
         </div>
-        {
-          this.state.show
-            ? <PicModal
-              baseURL={this.props.baseURL}
-              userId={this.props.userId}
-              closeModal={this.closeModal}
-              farm={this.props.images.farm}
-              server={this.props.images.server}
-              id={this.props.images.id}
-              secret={this.props.images.secret}
-            />
-            : null
-        }
       </>
     );
   }

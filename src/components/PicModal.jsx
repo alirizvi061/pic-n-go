@@ -26,20 +26,17 @@ export default class PicModal extends Component {
     render() {
         return (
             <div>
-                {/* <button onClick={() => this.props.closeModal()}> X </button>
-                <h1>Picture Modal</h1> */}
-
                 <Modal.Dialog>
-                    <Modal.Header closeButton>
+                    <Modal.Header className="bg-success">
                         <Modal.Title>Picture</Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body>
+                    <Modal.Body className="bg-success">
                         <p>Add the picture to your bucket list!</p>
-                        <img src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt="thumbnail url" />
+                        <img id="modalPic" src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt="thumbnail url" />
                     </Modal.Body>
 
-                    <Modal.Footer>
+                    <Modal.Footer className="bg-success">
                         <Button onClick={() => this.props.closeModal()} variant="secondary">Close</Button>
                         <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button>
                     </Modal.Footer>

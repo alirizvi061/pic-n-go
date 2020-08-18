@@ -46,23 +46,10 @@ class Home extends Component {
       });
   };
 
-  // homeShowModal = () => {
-  //   this.props.showModal()
-  // }
-
-  // closeHomeShowModal = () => {
-  //   this.props.closeModal()
-  // }
-
-
   render() {
     const imageComponent = this.state.apiData.map((images) => {
       return (
         <Images
-          closeHomeShowModal={this.closeHomeShowModal}
-          homeShowModal={this.homeShowModal}
-          show={this.props.show}
-          showModal={this.props.showModal}
           baseURL={this.props.baseURL}
           userId={this.props.userId}
           username={this.props.username}
@@ -73,8 +60,8 @@ class Home extends Component {
 
 
     return (
-      <div className="m-5">
-        <h1 className="text-lg-left">Pic n Go</h1>
+      <div className=" homeDiv m-5 text-md-left text-sm-center">
+        <h1 >Pic n Go</h1>
         <p>Got a trip coming up? Search for thousands of pictures and add them to your bucket list!</p>
 
         <form onSubmit={(event) => this.handleSubmit(event)}>
