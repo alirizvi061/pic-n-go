@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap"
 import axios from "axios"
 
 export default class Mylist extends Component {
@@ -53,7 +54,7 @@ export default class Mylist extends Component {
 
   render() {
     return (
-      <div>
+      <div className="listDiv">
         <div className=" m-5">
           <h2>{this.props.username}'s List</h2>
           <div className="mylistContainer">
@@ -62,8 +63,9 @@ export default class Mylist extends Component {
                 return (
                   <div className="myListDiv" key={index}>
                     <img className="myListDivPic" src={`${picture}`} alt="my list items" />
-                    <button onClick={() => this.removeItem(picture)}>Delete</button>
+                    <button type="button" className="btn btn-outline-danger" onClick={() => this.removeItem(picture)}>Delete</button>
                     <p>{this.state.notes[index]}</p>
+
                   </div>
                 )
               })
