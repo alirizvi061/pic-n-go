@@ -1,7 +1,17 @@
 body{
   display: flex;
   text-align: center;
+  background-color: rgb(40, 66, 1);
+  color: white;
+  margin-left: 8%;
 }
+
+@media (max-width: 600px) {
+    body {
+    margin: 0;
+  }
+}
+
 
 #root{
   margin-top: 25px;
@@ -14,5 +24,73 @@ body{
 
 .searchedImages{
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  width: %;
+  height: 1%;
+  padding: 3%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+  .searchedImages {
+    display: inline-grid;
+    flex-direction: row;
+    width: 50%;
+    height: 7%;
+    padding: 3%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+.searchedImage{
+  border-radius: 15px 15px;
+  width: 90%;
+  height: 100%;
+  margin: 5%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.searchedImageModal {
+  position: fixed;
+  bottom: 55px;
+  z-index: 1;
+  /* background-color: white; */
+  /* width: 50%; */
+  height: 10%;
+  /* border: 1px solid #ccc; */
+  box-shadow: 1px 1px 1px black;
+  /* padding: 16px; */
+  left: 15%;
+  bottom: 85%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+
+}
+
+@media (min-width: 600px) {
+  .searchedImageModal {
+      position: fixed;
+      left: 10%;
+      top: 10%;
+      width: 500px;
+      left: calc(50% - 250px);
+  }
+}
+
+.myListDivPic{
+  width: 100%;
+}
+
+/* MY LIST PAGE */
+.myListDiv{
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  border-radius: 15px 15px;
+  padding: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
 }

@@ -19,13 +19,14 @@ export default class PicModal extends Component {
             })
             .then((res) => {
                 console.log(res.data);
+                this.props.closeModal()
             })
             .catch((error) => console.error({ Error: error }));
     };
 
     render() {
         return (
-            <div>
+            <div className="searchedImageModal">
                 <Modal.Dialog>
                     <Modal.Header className="bg-success">
                         <Modal.Title>Picture</Modal.Title>

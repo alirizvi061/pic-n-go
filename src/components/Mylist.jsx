@@ -59,8 +59,8 @@ export default class Mylist extends Component {
               {
                 this.state.picList.map(picture => {
                   return (
-                    <div key={picture}>
-                      <img className=" " src={`${picture}`} alt="my list items" />
+                    <div className="myListDiv" key={picture}>
+                      <img className="myListDivPic" src={`${picture}`} alt="my list items" />
                       <button onClick={() => this.removeItem(picture)}>Delete</button>
                     </div>
                   )
