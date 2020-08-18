@@ -7,12 +7,12 @@ export default class NavBar extends Component {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="primary"
+        // bg="primary"
         variant="dark"
         className="fixed-top"
       >
 
-        <Navbar.Brand id="nav-title" href="/home">
+        <Navbar.Brand className="ml-3" id="nav-title" href="/home">
           Pic N Go
         </Navbar.Brand>
 
@@ -20,12 +20,13 @@ export default class NavBar extends Component {
 
         <Navbar.Collapse id="responsive-navbar-nav">
 
-          <Nav className="ml-auto">
+          <Nav className="ml-auto mr-5">
             {this.props.user ? (
               <>
-                <Button href="/home">Home</Button>
-                <Button href="/list">List</Button>
+                <Button className="navBarButtons" href="/home">Home</Button>
+                <Button className="navBarButtons" href="/list">List</Button>
                 <Button
+                  className="navBarButtons"
                   type="button"
                   id="btnLogout"
                   onClick={this.props.destroySession}
