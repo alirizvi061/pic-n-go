@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pic-N-Go
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Pic-N-Go is an app which allows the users to create a bucket list for their adventures using API information from the Flickr API. To start, users have to create an account using a username, email, and password. This allows the user the ability to add searched pictures to their bucket list with notes regarding their trip.
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Links
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Live site on [Heroku](https://pic-n-go.herokuapp.com/)
 
-### `npm test`
+- [Trello Board](https://trello.com/b/LI0EZ67x/pic-n-go)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The technologies used in this project are as follow: 
 
-### `npm run build`
+    1. HTML
+    2. CSS
+    3. JavaScript
+    4. REACT
+    5. Node / Express
+    6. Mongo / Mongoose
+    7. Axios
+    8. Trello (for project/task management purposes)
+    9. Chrome Browser (for searches)
+    10. Chrome Dev Tools (for development purposes)
+    11. MVC Folder Setup
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- ## Image
+![RZ Logo](https://github.com/alirizvi061/rzessentials/blob/master/Wireframes/LogInPage.png) -->
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Approach
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+My approach for this project was centered around creating a bucket list for all of my adventures! I wanted to make it easier for users to be able to search pictures using the Flickr API and adding these pictures directly to the user's bucket list with notation ability. Each user's information is secure in their accounts and only they can see the pictures they add and the notes they've put for each picture. 
 
-### `npm run eject`
+I started the project with the idea of creating the functionality first then the styling. This allowed me to spend time learning how to administer functionality without have the aid of the front end, I used the Postman app to check whether the backend routes were working or not before I created the front end routes using axios. I wanted every user to have their own profile so each user can have the ability to create their own bucket list, so I spent time creating user authentication and edited the user schema based on the needs of the app. After creating all of the functionality I started created the CSS layout and putting together the design elements to make the app look modern, user friendly and minimalistic. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For my project management I used Trello Board, this deemed beneficial in the success of my project's completion. Although I have used Notion for my previous projects, Trello allowed me a more user friendly user interface, the ability to drag and drop my items, and color coordinate them based on completion status. Using Trello allowed me to stay up to date with my planning for the day, keeping track of bugs, and staying up with the progress of the entire app. It also kept my code file clean from psuedocode because I was able to plan my approach using Trello. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Version 2
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In the future, I'd like to add the following functionalities: 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Create "Edit" functionilty for the user notes. 
+- Posible 'Google Maps API' integration for easy access to search and navigate to bucketlist item locations.
+- Create Permissions for who can/can't delete and edit products.
+- Create "Favorites" functionality for the list items.
+- Create "Folders" functionality for the list items.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+   
