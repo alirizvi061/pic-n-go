@@ -8,6 +8,8 @@ import Login from "./components/Login";
 import UserRegister from "./components/UserRegister";
 import Mylist from "./components/Mylist";
 import PicModal from "./components/PicModal";
+import Footer from "./components/Footer.jsx";
+
 import NavBar from "./NavBar";
 
 class App extends Component {
@@ -134,7 +136,9 @@ class App extends Component {
               />
               : null
           }
+          <Footer />
         </BrowserRouter>
+
       </div>
     );
   }

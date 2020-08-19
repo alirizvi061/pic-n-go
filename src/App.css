@@ -266,3 +266,8 @@ body{
   display: flex;
   justify-content: space-around;
 }
+
+/* FOOTER */
+.footer{
+  color: white;
+}
