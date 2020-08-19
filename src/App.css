@@ -134,8 +134,9 @@ body{
 .picContainer, .mylistContainerOverflow{
   overflow: auto;
   max-height: 100%;
-  background-color: none;
 }
+
+
 /* MY LIST CSS */
 @media (min-width: 1000px){
   .myListDivPic{
@@ -156,11 +157,7 @@ body{
     width: 100%;
   }
 
-  .listDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+ 
 }
 
 .mylistContainer{
