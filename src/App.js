@@ -49,16 +49,12 @@ class App extends Component {
     axios
       .post(this.state.baseURL + "/users/login", {
         username: this.state.username,
-        // email: this.state.email,
         password: this.state.password,
       })
       .then((res) => {
         console.log(res);
         if (res !== null && res.status === 200) {
           let data = res.data;
-          // console.log(data);
-          // console.log(data.userId);
-          // console.log(data.userPicList);
           this.setState({
             userPicList: data.userPicList,
             userId: data.userId,
@@ -74,41 +70,22 @@ class App extends Component {
         }
       })
       .catch((error) => console.error({ Error: error }));
-    // console.log(this.state);
     this.setState({
       username: "",
       email: "",
       password: "",
     });
-    // console.log(this.state);
   };
 
   destroySession = () => {
     window.localStorage.clear();
   };
 
-  // showModal = () => {
-  //   console.log("show modal function entered")
-  //   this.setState({
-  //     show: true
-  //   })
-  //   console.log(this.state.show)
-  // }
 
-  // closeModal = () => {
-  //   this.setState({
-  //     show: false
-  //   })
-  // }
-
-  // CREATE SET MODAL FUNCTION
-  // PASS IT DOWN AS PROPS TO THE MODAL.JSX AND HOME.JSX
-  // FROM THAT COMPONENT, SET MODAL STATE TO TRUE
-  // CREATE SET MODAL FUNCTION THAT TAKES VALUE AND THIS.SETSTATE TO THAT VALUE
   render() {
     return (
       <div className="container">
-        <BrowserRouter>
+        <BrowserRouter exact path="/home">
           <Route
             path="/home"
             render={() => (
@@ -149,7 +126,6 @@ class App extends Component {
             )}
           />
           <NavBar destroySession={this.destroySession} user={this.state.user} />
-          {/* create modal jsx, wrap in turnery operator. if true, pass stuff, in null close modal*/}
           {
             this.state.show
               ? <PicModal

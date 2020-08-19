@@ -31,25 +31,14 @@ export default class Mylist extends Component {
   removeItem = (picture) => {
     console.log(picture)
     console.log(localStorage)
-    // console.log(this.props.baseURL
-    // )
+
     axios.put(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
-      picture: picture
+      picture: picture,
     })
       .then(res => {
         console.log(res)
         this.getItems()
       })
-    // axios.delete(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
-    //   picture: picture
-    // })
-    //   .then(res => {
-    //     console.log(res.data.deletedItem.userPicList)
-    //     // this.setState({
-    //     //   picList: res.data.deletedItem.userPicList
-    //     // })
-    //   })
-
   }
 
   render() {
@@ -65,7 +54,6 @@ export default class Mylist extends Component {
                     <img className="myListDivPic" src={`${picture}`} alt="my list items" />
                     <button type="button" className="btn btn-outline-danger" onClick={() => this.removeItem(picture)}>Delete</button>
                     <p>{this.state.notes[index]}</p>
-
                   </div>
                 )
               })

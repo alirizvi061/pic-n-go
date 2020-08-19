@@ -5,6 +5,14 @@ body {
   
 }
 
+body, html {
+  background-image: url("./assets/Background.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
