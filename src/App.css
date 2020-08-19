@@ -28,6 +28,9 @@ body{
   width: 73vw;
   border-radius: 15px;
   padding: 15px;
+  /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 15px 15px; */
 }
 /* MODAL PICTURE */
 #modalPic{
@@ -128,6 +131,11 @@ body{
   }
 }
 
+.picContainer, .mylistContainerOverflow{
+  overflow: auto;
+  max-height: 100%;
+  background-color: none;
+}
 /* MY LIST CSS */
 @media (min-width: 1000px){
   .myListDivPic{
@@ -155,14 +163,19 @@ body{
   }
 }
 
+.mylistContainer{
+  height: 1%;
+
+}
   .myListDiv{
     display: flex;
     flex-direction: column;
-    margin: 2%;
+    margin-bottom: 15%;
+    margin: 3%;
     border-radius: 15px 15px;
     padding: 1%;
+    height: 100%;
     background-color: white;
-    /* max-width: 30%; */
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
       0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
   }
@@ -189,15 +202,12 @@ body{
   }
 }
 
+.listText{
+  color: white;
+}
 
 /* LOGIN CSS */
 .loginDiv{
-  /* display: flex;
-  justify-content: center;
-  border: 1px solid black;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
-  border-radius: 15px 15px; */
   display: flex;
   justify-content: center;
   margin-left: 23%;

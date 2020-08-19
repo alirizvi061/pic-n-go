@@ -81,7 +81,7 @@ class Home extends Component {
             <input className="Button" type="submit" />
           </form>
         </div>
-        <div className="container d-flex flex-wrap">
+        <div className="container picContainer d-flex flex-wrap">
           <div className="row">{this.state.isLoaded && imageComponent}</div>
         </div>
       </>

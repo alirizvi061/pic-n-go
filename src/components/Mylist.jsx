@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap"
+import NotesModal from "./NotesModal.jsx"
 import axios from "axios"
 
 export default class Mylist extends Component {
@@ -46,20 +47,26 @@ export default class Mylist extends Component {
       <div className="listDiv">
         <div className=" m-5">
           <h2>{this.props.username}'s List</h2>
-          <div className="mylistContainer">
+          <div className="mylistContainer mylistContainerOverflow">
             {
               this.state.picList.map((picture, index) => {
                 return (
                   <div className="myListDiv" key={index}>
-                    <img className="myListDivPic" src={`${picture}`} alt="my list items" />
+                    <img className="myListDivPic" src={`${picture}`} alt="my list items" /><br />
                     <button type="button" className="btn btn-outline-danger" onClick={() => this.removeItem(picture)}>Delete</button>
-                    <p>{this.state.notes[index]}</p>
+                    {/* <p className="listText">{this.state.notes[index]}</p> */}
+                    {console.log(this.state.notes.Array)}
+                    <NotesModal
+                      notes={this.state.notes}
+                      index={index}
+                    />
                   </div>
                 )
               })
             }
           </div >
         </div>
+
       </div>
     );
   }
