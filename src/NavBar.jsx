@@ -37,6 +37,7 @@ export default class NavBar extends Component {
               </>
             ) : (
                 <>
+                  <Nav.Link href="/about">About</Nav.Link>
                   <Nav.Link href="/home">Home</Nav.Link>
                   <Nav.Link href="/login">Login</Nav.Link>
                   <Nav.Link href="/users">Sign Up</Nav.Link>

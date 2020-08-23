@@ -9,6 +9,7 @@ import UserRegister from "./components/UserRegister";
 import Mylist from "./components/Mylist";
 import PicModal from "./components/PicModal";
 import Footer from "./components/Footer.jsx";
+import About from "./components/About.jsx";
 
 import NavBar from "./NavBar";
 
@@ -92,6 +93,7 @@ class App extends Component {
             path="/home"
             render={() => (
               <Home
+                user={this.state.user}
                 closeModal={this.closeModal}
                 show={this.state.show}
                 showModal={this.showModal}
@@ -102,6 +104,8 @@ class App extends Component {
             )}
           />
           <Route path="/users" component={UserRegister} />
+          <Route path="/about" component={About} />
+
           <Route
             path="/list"
             render={() => (

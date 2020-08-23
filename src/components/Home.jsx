@@ -55,6 +55,7 @@ class Home extends Component {
     const imageComponent = this.state.apiData.map((images) => {
       return (
         <Images
+          user={this.props.user}
           baseURL={this.props.baseURL}
           userId={this.props.userId}
           username={this.props.username}

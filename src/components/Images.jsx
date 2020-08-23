@@ -73,6 +73,7 @@ class Images extends Component {
         {
           this.state.show
             ? <PicModal
+              user={this.props.user}
               baseURL={this.props.baseURL}
               userId={this.props.userId}
               closeModal={this.closeModal}

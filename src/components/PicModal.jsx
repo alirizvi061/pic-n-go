@@ -61,7 +61,12 @@ export default class PicModal extends Component {
 
                     <Modal.Footer className="bg-warning">
                         <Button onClick={() => this.props.closeModal()} variant="secondary">Close</Button>
-                        <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button>
+                        {/* this.props.user is being passed down */}
+                        {this.props.user
+                            ? <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button>
+                            : <p>Log in to save</p>}
+                        {/* // <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button> */}
+                        {/* Trying conditional rendering for logged in user vs. not logged in */}
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>
