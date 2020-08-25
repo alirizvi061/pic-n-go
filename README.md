@@ -7,7 +7,7 @@ Pic-N-Go is an app which allows the users to create a bucket list for their adve
 
 ## Links
 
-- Live site on [Heroku](https://pic-n-go.herokuapp.com/)
+- Live site on [Heroku](https://pic-n-go.herokuapp.com/home)
 
 - [Trello Board](https://trello.com/b/LI0EZ67x/pic-n-go)
 
