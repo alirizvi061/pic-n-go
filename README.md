@@ -21,9 +21,8 @@ The technologies used in this project are as follow:
     6. Mongo / Mongoose
     7. Axios
     8. Trello (for project/task management purposes)
-    9. Chrome Browser (for searches)
-    10. Chrome Dev Tools (for development purposes)
-    11. MVC Folder Setup
+    9. Chrome Dev Tools (for development purposes)
+    10. MVC Folder Setup
 
 <!-- ## Image
 ![RZ Logo](https://github.com/alirizvi061/rzessentials/blob/master/Wireframes/LogInPage.png) -->
