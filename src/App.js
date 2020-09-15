@@ -10,7 +10,6 @@ import Mylist from "./components/Mylist";
 import PicModal from "./components/PicModal";
 import Footer from "./components/Footer.jsx";
 import About from "./components/About.jsx";
-
 import NavBar from "./NavBar";
 
 class App extends Component {
@@ -28,6 +27,37 @@ class App extends Component {
       password: "",
     };
   }
+
+  //SIGNUP FUNCTIONALITY
+  handleChange = (event) => {
+    this.setState({ [event.currentTarget.id]: event.currentTarget.value });
+  };
+
+  userSubmit = (event) => {
+    event.preventDefault();
+    console.log("inside Axios statement");
+    console.log(this.state.baseURL + "/users");
+    axios
+      .post(this.state.baseURL + "/users", {
+        username: this.state.username,
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((res) => {
+        this.setState({
+          username: "",
+          email: "",
+          password: "",
+          loggedIn: true,
+          user: true,
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   // LOGIN HANDLES
   handleLoginChange = (event) => {
     this.setState({ [event.currentTarget.id]: event.currentTarget.value });
@@ -82,15 +112,18 @@ class App extends Component {
 
   destroySession = () => {
     window.localStorage.clear();
+    this.setState({
+      loggedIn: false
+    })
   };
 
 
   render() {
     return (
       <div className="container">
-        <BrowserRouter exact path="/home">
+        <BrowserRouter exact path="/">
           <Route
-            path="/home"
+            exact path="/"
             render={() => (
               <Home
                 user={this.state.user}
@@ -103,7 +136,28 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/users" component={UserRegister} />
+          <Route
+            path="/users"
+            render={() => (
+              <UserRegister
+                loggedIn={this.state.loggedIn}
+                userSubmit={this.userSubmit}
+                handleChange={this.handleChange}
+                username={this.state.username}
+                email={this.state.email}
+                password={this.state.password}
+                isAuth={false}
+              />
+            )}
+          />
+          {/* <Route path="/users" component={UserRegister}
+            loggedIn={this.state.loggedIn}
+            username={this.state.username}
+            email={this.state.email}
+            password={this.state.password}
+            userSubmit={this.userSubmit}
+            handleChange={this.handleChange}
+          /> */}
           <Route path="/about" component={About} />
 
           <Route

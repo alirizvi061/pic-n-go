@@ -5,7 +5,7 @@ export default class Login extends Component {
 
   render() {
     if (this.props.loggedIn) {
-      return <Redirect to="/home" />
+      return <Redirect to="/" />
     }
     return (
       <div className="loginDiv">

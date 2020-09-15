@@ -12,7 +12,7 @@ export default class NavBar extends Component {
         className="fixed-top"
       >
 
-        <Navbar.Brand className="ml-3" id="nav-title" href="/home">
+        <Navbar.Brand className="ml-3" id="nav-title" href="/">
           Pic N Go
         </Navbar.Brand>
 
@@ -23,14 +23,14 @@ export default class NavBar extends Component {
           <Nav className="ml-auto mr-5">
             {this.props.user ? (
               <>
-                <Button className="navBarButtons" href="/home">Home</Button>
+                <Button className="navBarButtons" href="/">Home</Button>
                 <Button className="navBarButtons" href="/list">List</Button>
                 <Button
                   className="navBarButtons"
                   type="button"
                   id="btnLogout"
                   onClick={this.props.destroySession}
-                  href="/home"
+                  href="/"
                 >
                   Logout
                 </Button>
@@ -38,7 +38,7 @@ export default class NavBar extends Component {
             ) : (
                 <>
                   <Nav.Link href="/about">About</Nav.Link>
-                  <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/login">Login</Nav.Link>
                   <Nav.Link href="/users">Sign Up</Nav.Link>
                 </>
