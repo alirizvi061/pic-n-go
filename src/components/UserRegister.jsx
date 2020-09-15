@@ -47,6 +47,8 @@ export default class UserRegister extends Component {
       return <Redirect to="/" />
     }
 
+
+
     return (
       <div className="signUpDiv">
         <div className="m-5">
