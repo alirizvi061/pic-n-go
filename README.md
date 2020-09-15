@@ -7,7 +7,7 @@ Pic-N-Go is an app which allows the users to create a bucket list for their adve
 
 ## Links
 
-- Live site on [Heroku](https://pic-n-go.herokuapp.com/)
+- Live site on [Heroku](https://pic-n-go.herokuapp.com/home)
 
 - [Trello Board](https://trello.com/b/LI0EZ67x/pic-n-go)
 
@@ -21,9 +21,8 @@ The technologies used in this project are as follow:
     6. Mongo / Mongoose
     7. Axios
     8. Trello (for project/task management purposes)
-    9. Chrome Browser (for searches)
-    10. Chrome Dev Tools (for development purposes)
-    11. MVC Folder Setup
+    9. Chrome Dev Tools (for development purposes)
+    10. MVC Folder Setup
 
 <!-- ## Image
 ![RZ Logo](https://github.com/alirizvi061/rzessentials/blob/master/Wireframes/LogInPage.png) -->
