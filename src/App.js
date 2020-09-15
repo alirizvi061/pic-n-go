@@ -52,6 +52,10 @@ class App extends Component {
           user: true,
         });
         console.log(res);
+        localStorage.setItem("username", res.data.username);
+        localStorage.setItem("userPicList", res.data.userPicList);
+        localStorage.setItem("userId", res.data.userId);
+        localStorage.setItem("token", res.data.securityToken);
       })
       .catch((err) => {
         console.log(err);
