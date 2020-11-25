@@ -51,6 +51,7 @@ class Home extends Component {
     }
   };
 
+
   render() {
     const imageComponent = this.state.apiData.map((images) => {
       return (
