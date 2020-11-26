@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
 
 body{
-  /* display: flex; */
-  text-align: center;
-  /* background-color: #fff; */
-  /* color: white; */
+  /* text-align: center; */
   margin-top: 10%;
   font-family: 'Baloo Tamma 2', cursive;
 }
@@ -22,15 +19,13 @@ body{
 /* HOME CSS */
 
 .homeDiv{
-  /* border: 1px solid black; */
+
   background: rgb(119, 32, 32);
   color: white;
-  width: 73vw;
+  /* width: 73vw; */
   border-radius: 15px;
   padding: 15px;
-  /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
-  border-radius: 15px 15px; */
+
 }
 /* MODAL PICTURE */
 #modalPic{
@@ -59,38 +54,51 @@ body{
 /* HOME PAGE PICTURE */
 @media (min-width: 600px) {
 .searchedImages{
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   max-width: 90%;
   max-height: 90%;
   object-fit: cover;
   padding: 3%;
   justify-content: space-around;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 }
 
 @media (min-width: 600px) {
   .searchedImages {
-    display: inline-grid;
+    /* display: inline-grid;
     flex-direction: row;
     width: 50%;
     height: 7%;
     padding: 3%;
     justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
   }
 }
 
+.imagesDiv{
+  padding: 5%;
+  border: 1px solid black;
+  width: 70vw;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  overflow: scroll;
+}
+
 .searchedImage{
-  display: flex;
+  /* max-width: 100%; */
+  /* display: flex;
   flex-direction: row;
-  border-radius: 5px 5px;
-  width: 100%;
-  object-fit: cover;
-  margin: 5%;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 5px 5px; */
+  /* width: 100%; */
+  /* object-fit: cover; */
+  padding: 2%;
+  height: 40vw;
+
+  /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3); */
 }
 
 .searchedImageModal {
@@ -139,8 +147,8 @@ body{
 }
 
 .picContainer, .mylistContainerOverflow{
-  overflow: auto;
-  max-height: 100%;
+  /* overflow: auto; */
+  max-height: 80%;
 }
 
 

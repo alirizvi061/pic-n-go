@@ -45,16 +45,19 @@ class Home extends Component {
 
   render() {
     const imageComponent = this.state.images.map((images) => {
-      // { console.log("this is props", images) }
+
       return (
-        <Images
-          id
-          user={this.props.user}
-          baseURL={this.props.baseURL}
-          userId={this.props.userId}
-          username={this.props.username}
-          images={images}
-        />
+        <div>
+          <Images
+            id
+            user={this.props.user}
+            baseURL={this.props.baseURL}
+            userId={this.props.userId}
+            username={this.props.username}
+            images={images}
+          />
+        </div>
+
       );
     });
 
@@ -78,11 +81,12 @@ class Home extends Component {
             <input className="Button" type="submit" />
           </form>
         </div>
-        <div className="container picContainer d-flex flex-wrap">
-          <div className="row">{this.state.isLoaded && imageComponent}</div>
+        <div >
+          <div className="imagesDiv">{this.state.isLoaded && imageComponent}</div>
         </div>
 
-
+        {/* className="container picContainer d-flex flex-wrap" */}
+        {/* className="row" */}
       </>
     );
   }
