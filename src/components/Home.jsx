@@ -21,6 +21,7 @@ class Home extends Component {
     this.setState({ queryTerm: event.target.value });
   };
 
+
   handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios
@@ -34,13 +35,14 @@ class Home extends Component {
           images: response.data.results,
           isLoaded: true,
         });
-        // console.log(this.state.images);
       })
       .catch(error => {
         console.log("empty input", error)
       })
-    // }
+
   };
+
+
 
 
   render() {
@@ -81,9 +83,7 @@ class Home extends Component {
             <input className="Button" type="submit" />
           </form>
         </div>
-        <div >
-          <div className="horizontalView">{this.state.isLoaded && imageComponent}</div>
-        </div>
+        <div className="horizontalView">{this.state.isLoaded && imageComponent}</div>
       </>
     );
   }

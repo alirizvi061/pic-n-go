@@ -3,7 +3,7 @@
 
 body{
   text-align: center !important;
-
+  /* margin-top: 5%; */
   font-family: 'Baloo Tamma 2', cursive;
 }
 
@@ -19,6 +19,7 @@ body{
 /* HOME CSS */
 
 .homeDiv{
+  
   background: rgb(119, 32, 32);
   color: white;
   border-radius: 15px;
@@ -26,9 +27,9 @@ body{
 }
 
 /* MODAL PICTURE */
-#modalPic{
+/* #modalPic{
   max-width: 99%;
-}
+} */
 
 .modal-content{
   border: 1px solid black;
@@ -37,8 +38,8 @@ body{
   text-align: center;
 }
 .modalPicture{
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  margin-bottom: 5%;
   object-fit: cover;
 }
 
@@ -67,6 +68,8 @@ body{
   height: auto;
   justify-content: center;
   padding: 3vw 0 3vw 0;
+  border: 3px solid white;
+  border-radius: 5px;
 }
 
 .horizontalView{
@@ -74,6 +77,8 @@ body{
   flex-direction: row !important;
   overflow: scroll;
   justify-content: space-between;
+  margin-bottom: 5%;
+  
 }
 
 .searchedImage{
@@ -248,5 +253,7 @@ body{
 /* FOOTER */
 .footer{
   color: white;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
