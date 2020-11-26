@@ -36,8 +36,8 @@ class Images extends Component {
 
     return (
       <>
-        {/* className="searchedImages text-lg-left" */}
-        <div >
+
+        <div className="imagesDiv">
           <img key={this.props.images.id} className="searchedImage" src={this.props.images.urls.regular} alt={this.props.images.alt_description} onClick={() => { this.showModal() }} />
 
 

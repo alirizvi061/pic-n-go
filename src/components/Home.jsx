@@ -82,11 +82,8 @@ class Home extends Component {
           </form>
         </div>
         <div >
-          <div className="imagesDiv">{this.state.isLoaded && imageComponent}</div>
+          <div className="horizontalView">{this.state.isLoaded && imageComponent}</div>
         </div>
-
-        {/* className="container picContainer d-flex flex-wrap" */}
-        {/* className="row" */}
       </>
     );
   }
