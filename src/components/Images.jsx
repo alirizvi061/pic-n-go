@@ -48,6 +48,7 @@ class Images extends Component {
               closeModal={this.closeModal}
               id={this.props.images.id}
               show={this.state.show}
+              userId={this.props.userId}
             />
             : null
         }

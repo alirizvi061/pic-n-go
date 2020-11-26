@@ -60,7 +60,7 @@ export default class PicModal extends Component {
 
                     <Modal.Footer className="bg-warning">
                         <Button onClick={() => this.props.closeModal()} variant="secondary">Close</Button>
-                        {this.props.user
+                        {this.props.userId
                             ? <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button>
                             : <p>Log in to save</p>}
                     </Modal.Footer>
