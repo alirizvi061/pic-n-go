@@ -12,8 +12,6 @@ export default class PicModal extends Component {
     }
 
     handleChange = (event) => {
-        // console.log(event)
-        // console.log("notes change entered")
         this.setState({ [event.target.id]: event.target.value });
         console.log(this.state.notes)
     }
@@ -50,7 +48,8 @@ export default class PicModal extends Component {
 
                     <Modal.Body className="bg-warning text-dark">
                         <p>Add the picture to your bucket list!</p>
-                        <img id="modalPic" src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt="thumbnail url" />
+                        <img className="modalPicture" key={this.props.images.id} src={this.props.images.urls.regular} alt={this.props.images.alt_description} />
+
                         <form >
                             <label>
                                 Notes:
@@ -61,12 +60,9 @@ export default class PicModal extends Component {
 
                     <Modal.Footer className="bg-warning">
                         <Button onClick={() => this.props.closeModal()} variant="secondary">Close</Button>
-                        {/* this.props.user is being passed down */}
                         {this.props.user
                             ? <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button>
                             : <p>Log in to save</p>}
-                        {/* // <Button onClick={() => this.saveToList()} variant="primary">Save to list</Button> */}
-                        {/* Trying conditional rendering for logged in user vs. not logged in */}
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>

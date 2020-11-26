@@ -41,7 +41,6 @@ class Images extends Component {
   // closeHomeImageShowModal = () => {
   //   this.props.closeHomeShowModal()
   // }
-
   showModal = () => {
     console.log("show modal function entered")
     this.setState({
@@ -56,31 +55,45 @@ class Images extends Component {
     })
   }
 
+  showImage = () => {
+    this.props.images.map(img => {
+      return <img key={img.id} src={img.urls.regular} alt={img.alt_description} />
+    })
+
+  }
+
   render() {
+
     return (
       <>
+        <div>THIS IS SHOWING</div>
+        {console.log(this.props.images)}
         <div className="searchedImages text-lg-left">
-          <img
+          <img key={this.props.images.id} className="searchedImage img-thumbnail" src={this.props.images.urls.regular} alt={this.props.images.alt_description} onClick={() => { this.showModal() }} />
+
+
+          {/* <img
             onClick={() => { this.showModal() }}
             className="searchedImage img-thumbnail "
-            key={this.props.images.toString()}
+            key={this.props.images.id}
             alt="flicker items"
-            src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
+            src={this.props.images.urls.regular}
           />
-          {console.log(this.props.images.toString())}
+          {console.log(this.props.images.toString())} */}
 
         </div>
         {
           this.state.show
             ? <PicModal
-              user={this.props.user}
-              baseURL={this.props.baseURL}
-              userId={this.props.userId}
+              images={this.props.images}
+              // user={this.props.user}
+              // baseURL={this.props.baseURL}
+              // userId={this.props.userId}
               closeModal={this.closeModal}
-              farm={this.props.images.farm}
-              server={this.props.images.server}
+              // farm={this.props.images.farm}
+              // server={this.props.images.server}
               id={this.props.images.id}
-              secret={this.props.images.secret}
+              // secret={this.props.images.secret}
               show={this.state.show}
             />
             : null
