@@ -2,11 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
 
 body{
-  /* display: flex; */
-  text-align: center;
-  /* background-color: #fff; */
-  /* color: white; */
-  margin-top: 10%;
+  text-align: center !important;
+
   font-family: 'Baloo Tamma 2', cursive;
 }
 
@@ -22,16 +19,12 @@ body{
 /* HOME CSS */
 
 .homeDiv{
-  /* border: 1px solid black; */
   background: rgb(119, 32, 32);
   color: white;
-  width: 73vw;
   border-radius: 15px;
-  padding: 15px;
-  /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-  0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
-  border-radius: 15px 15px; */
+  padding: 8px;
 }
+
 /* MODAL PICTURE */
 #modalPic{
   max-width: 99%;
@@ -43,6 +36,11 @@ body{
     0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+.modalPicture{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
 
 @media (min-width: 600px) {
   .modal-dialog{
@@ -53,55 +51,45 @@ body{
 }
 
 /* HOME PAGE PICTURE */
-@media (min-width: 600px) {
-.searchedImages{
-  display: flex;
-  flex-direction: row;
-  max-width: 90%;
-  max-height: 90%;
-  padding: 3%;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-}
 
-@media (min-width: 600px) {
-  .searchedImages {
-    display: inline-grid;
-    flex-direction: row;
-    width: 50%;
-    height: 7%;
-    padding: 3%;
-    justify-content: space-around;
-    flex-wrap: wrap;
+
+@media (max-width: 600px) {
+  .searchedImage {
+    padding: 0.5%;
+    height: 95vw !important;
+
   }
 }
 
+.imagesDiv{
+  border: 1px solid black;
+  background: white;
+  height: auto;
+  justify-content: center;
+  padding: 3vw 0 3vw 0;
+}
+
+.horizontalView{
+  display: flex !important;
+  flex-direction: row !important;
+  overflow: scroll;
+  justify-content: space-between;
+}
+
 .searchedImage{
-  border-radius: 15px 15px;
-  width: 90%;
-  height: 100%;
-  margin: 5%;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  height: 35vw;
 }
 
 .searchedImageModal {
   position: fixed;
   bottom: 55px;
   z-index: 1;
-  /* background-color: white; */
-  /* width: 50%; */
   height: 10%;
-  /* border: 1px solid #ccc; */
-  /* box-shadow: 1px 1px 1px black; */
-  /* padding: 16px; */
   border: 15px 15px;
   left: 15%;
   bottom: 85%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
-  
 }
 
 @media (max-width: 600px) {
@@ -117,8 +105,6 @@ body{
   .searchedImageModal {
       position: fixed;
       top: 5%;
-      /* width: 300px; */
-      /* height: 25px; */
       right: calc(50% - 275px);
   }
 }
@@ -133,7 +119,7 @@ body{
 
 .picContainer, .mylistContainerOverflow{
   overflow: auto;
-  max-height: 100%;
+  max-height: 80%;
 }
 
 
@@ -189,7 +175,6 @@ body{
     width: 44%;
     padding: 2;
     padding-bottom: 4%;
-    /* height: 100%; */
   }
   .mylistContainer{
     display: flex;
@@ -252,10 +237,7 @@ body{
 
 .fixed-top, .navBarButtons{
   background: rgb(119, 32, 32);
-
-  /* background-color: rgba(8, 106, 235, 0.856); */
   border-color: rgb(119, 32, 32);
-
 }
 
 .navBarButtons{
@@ -266,4 +248,5 @@ body{
 /* FOOTER */
 .footer{
   color: white;
+  position: absolute;
 }

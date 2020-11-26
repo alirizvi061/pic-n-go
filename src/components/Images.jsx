@@ -11,37 +11,6 @@ class Images extends Component {
     }
   }
 
-  // showPicInfo = () => {
-  //   console.log(this.props.images.farm);
-  //   console.log(this.props.images.server);
-  //   console.log(this.props.images.id);
-  //   console.log(this.props.images.secret);
-  //   let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
-  //   console.log(imageURL);
-  // };
-
-  // saveToList = () => {
-  //   console.log("function entered");
-  //   let imageURL = `https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`;
-
-  //   console.log(imageURL);
-  //   console.log(this.props.baseURL);
-  //   console.log(this.props.userId);
-  //   axios
-  //     .put(this.props.baseURL + "/users/list", {
-  //       _id: this.props.userId,
-  //       image: imageURL,
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => console.error({ Error: error }));
-  // };
-
-  // closeHomeImageShowModal = () => {
-  //   this.props.closeHomeShowModal()
-  // }
-
   showModal = () => {
     console.log("show modal function entered")
     this.setState({
@@ -56,31 +25,29 @@ class Images extends Component {
     })
   }
 
+  showImage = () => {
+    this.props.images.map(img => {
+      return <img key={img.id} src={img.urls.regular} alt={img.alt_description} />
+    })
+
+  }
+
   render() {
+
     return (
       <>
-        <div className="searchedImages text-lg-left">
-          <img
-            onClick={() => { this.showModal() }}
-            className="searchedImage img-thumbnail "
-            key={this.props.images.toString()}
-            alt="flicker items"
-            src={`https://farm${this.props.images.farm}.staticflickr.com/${this.props.images.server}/${this.props.images.id}_${this.props.images.secret}.jpg`}
-          />
-          {console.log(this.props.images.toString())}
+
+        <div className="imagesDiv">
+          <img key={this.props.images.id} className="searchedImage" src={this.props.images.urls.regular} alt={this.props.images.alt_description} onClick={() => { this.showModal() }} />
+
 
         </div>
         {
           this.state.show
             ? <PicModal
-              user={this.props.user}
-              baseURL={this.props.baseURL}
-              userId={this.props.userId}
+              images={this.props.images}
               closeModal={this.closeModal}
-              farm={this.props.images.farm}
-              server={this.props.images.server}
               id={this.props.images.id}
-              secret={this.props.images.secret}
               show={this.state.show}
             />
             : null

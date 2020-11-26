@@ -12,12 +12,8 @@ class Home extends Component {
       isLoaded: false,
       images: [],
       apiData: [],
-      baseURL: "https://api.flickr.com/services/rest/?",
-      method: "method=flickr.photos.search&api_key=",
       apiKey: APIKEY,
-      text: "&text=",
       queryTerm: "",
-      jsonResponse: "&format=json&nojsoncallback=1",
     };
   }
 
@@ -25,42 +21,43 @@ class Home extends Component {
     this.setState({ queryTerm: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(event.target.value)
-    if (this.state.queryTerm !== null) {
-      axios
-        .get(
-          this.state.baseURL +
-          this.state.method +
-          this.state.apiKey +
-          this.state.text +
-          this.state.queryTerm +
-          this.state.jsonResponse
-        )
-        .then((res) => {
-          this.setState({
-            apiData: res.data.photos.photo,
-            isLoaded: true,
-          });
-          console.log(this.state.apiData);
-        })
-        .catch(error => {
-          console.log("empty input", error)
-        })
-    }
+    const response = await axios
+      .get(
+        `https://api.unsplash.com/search/photos?query=${this.state.queryTerm}&client_id=${this.state.apiKey}`, {
+
+      }
+      )
+      .then((response) => {
+        this.setState({
+          images: response.data.results,
+          isLoaded: true,
+        });
+        // console.log(this.state.images);
+      })
+      .catch(error => {
+        console.log("empty input", error)
+      })
+    // }
   };
 
+
   render() {
-    const imageComponent = this.state.apiData.map((images) => {
+    const imageComponent = this.state.images.map((images) => {
+
       return (
-        <Images
-          user={this.props.user}
-          baseURL={this.props.baseURL}
-          userId={this.props.userId}
-          username={this.props.username}
-          images={images}
-        />
+        <div>
+          <Images
+            id
+            user={this.props.user}
+            baseURL={this.props.baseURL}
+            userId={this.props.userId}
+            username={this.props.username}
+            images={images}
+          />
+        </div>
+
       );
     });
 
@@ -68,6 +65,8 @@ class Home extends Component {
     return (
       <>
         <div className=" homeDiv m-5 text-md-left text-sm-center">
+          <div>Found: {this.state.images.length} Images</div>
+
           <h1 >Pic N Go</h1>
           <p>Got a trip coming up? Search for thousands of pictures and add them to your bucket list!</p>
 
@@ -82,8 +81,8 @@ class Home extends Component {
             <input className="Button" type="submit" />
           </form>
         </div>
-        <div className="container picContainer d-flex flex-wrap">
-          <div className="row">{this.state.isLoaded && imageComponent}</div>
+        <div >
+          <div className="horizontalView">{this.state.isLoaded && imageComponent}</div>
         </div>
       </>
     );
