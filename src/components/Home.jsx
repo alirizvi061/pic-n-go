@@ -66,7 +66,7 @@ class Home extends Component {
 
     return (
       <>
-        <div className=" homeDiv m-5 text-md-left text-sm-center">
+        <div className=" homeDiv m-5 text-sm-center">
           <div>Found: {this.state.images.length} Images</div>
 
           <h1 >Pic N Go</h1>
@@ -77,6 +77,7 @@ class Home extends Component {
               <input
                 type="text"
                 id="searchbar"
+                placeholder="Type a keyword to start searching...."
                 onChange={(event) => this.handleChange(event)}
               />
             </div>

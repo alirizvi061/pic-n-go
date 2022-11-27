@@ -13,17 +13,10 @@ export default class PicModal extends Component {
 
     handleChange = (event) => {
         this.setState({ [event.target.id]: event.target.value });
-        console.log(this.state.notes)
     }
 
     saveToList = () => {
-        console.log("function entered");
-        let imageURL = `https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`;
-
-        console.log(imageURL);
-        console.log(this.props.baseURL);
-        console.log(this.props.userId);
-        console.log(this.state.notes);
+        let imageURL = `${this.props.images.urls.full}`;
 
         axios
             .put(this.props.baseURL + "/users/list", {
@@ -32,7 +25,6 @@ export default class PicModal extends Component {
                 notes: this.state.notes,
             })
             .then((res) => {
-                console.log(res.data);
                 this.props.closeModal()
             })
             .catch((error) => console.error({ Error: error }));
@@ -53,7 +45,7 @@ export default class PicModal extends Component {
                         <form >
                             <label>
                                 Notes:
-                            <input type="text" name="notes" id="notes" value={this.state.notes} onChange={this.handleChange} />
+                                <input type="text" name="notes" id="notes" value={this.state.notes} onChange={this.handleChange} />
                             </label>
                         </form>
                     </Modal.Body>

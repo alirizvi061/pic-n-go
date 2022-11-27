@@ -39,7 +39,6 @@ class Images extends Component {
         <div className="imagesDiv">
           <img key={this.props.images.id} className="searchedImage" src={this.props.images.urls.regular} alt={this.props.images.alt_description} onClick={() => { this.showModal() }} />
 
-
         </div>
         {
           this.state.show
@@ -49,6 +48,7 @@ class Images extends Component {
               id={this.props.images.id}
               show={this.state.show}
               userId={this.props.userId}
+              baseURL={this.props.baseURL}
             />
             : null
         }
