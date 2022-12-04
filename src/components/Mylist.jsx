@@ -30,14 +30,11 @@ export default class Mylist extends Component {
   }
 
   removeItem = (picture) => {
-    console.log(picture)
-    console.log(localStorage)
 
     axios.put(this.props.baseURL + "/users/deleteitem/" + localStorage.userId, {
       picture: picture,
     })
       .then(res => {
-        console.log(res)
         this.getItems()
       })
   }
@@ -54,8 +51,6 @@ export default class Mylist extends Component {
                   <div className="myListDiv" key={index}>
                     <img className="myListDivPic" src={`${picture}`} alt="my list items" /><br />
                     <button type="button" className="btn btn-outline-danger" onClick={() => this.removeItem(picture)}>Delete</button>
-                    {/* <p className="listText">{this.state.notes[index]}</p> */}
-                    {console.log(this.state.notes.Array)}
                     <NotesModal
                       notes={this.state.notes}
                       index={index}

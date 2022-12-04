@@ -3,7 +3,6 @@ import axios from "axios";
 import Images from "./Images";
 
 const APIKEY = process.env.REACT_APP_APIKEY;
-console.log(APIKEY);
 
 class Home extends Component {
   constructor(props) {
