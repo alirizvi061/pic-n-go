@@ -45,17 +45,17 @@ class App extends Component {
       })
       .then((res) => {
         this.setState({
+          userPicList: res.data.userPicList,
+          userId: res.data._id,
           username: "",
           email: "",
           password: "",
           loggedIn: true,
           user: true,
         });
-        console.log(res);
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("userPicList", res.data.userPicList);
-        localStorage.setItem("userId", res.data.userId);
-        localStorage.setItem("token", res.data.securityToken);
+        localStorage.setItem("userId", res.data._id);
       })
       .catch((err) => {
         console.log(err);
@@ -89,7 +89,6 @@ class App extends Component {
         password: this.state.password,
       })
       .then((res) => {
-        console.log(res);
         if (res !== null && res.status === 200) {
           let data = res.data;
           this.setState({
@@ -99,7 +98,6 @@ class App extends Component {
             loggedIn: true,
           });
           console.log(this.state.loggedIn);
-          console.log("this userId in state is now", this.state.userId);
           localStorage.setItem("username", data.username);
           localStorage.setItem("userPicList", data.userPicList);
           localStorage.setItem("userId", data.userId);
